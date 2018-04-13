@@ -1,0 +1,31 @@
+<resources>
+    <!-- APP STRINGS -->
+    <string name="app_name">TrainingPal</string>
+    <string name="app_environment">DEV</string>
+
+    <string name="app_confirm_exit_message">Press back again to exit the app!</string>
+    <string name="page_confirm_exit_message">Press back again to leave this page!</string>
+
+    <!-- NAV BAR STRINGS -->
+    <string name="app_navigation_drawer_open">Open navigation drawer</string>
+    <string name="app_navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- SHARED STRINGS -->
+    <string name="app_default_spinner_message">Select One</string>
+    <string name="app_clear_button_text">Clear</string>
+
+    <string name="app_form_required_error">* Required! *</string>
+    <string name="app_form_alert_error">The form has errors!</string>
+
+    <string name="app_session_has_expired_error">Session has expired! Please login again.</string>
+    
+    <string name="app_cookie_storage_filename">Training_Pal_Cookies_Local</string>
+    
+    <string name="app_api_base_url">@string/app_dev_api_base_url</string>
+
+    <string name="app_dev_api_base_url">http://10.0.3.2:5000</string>
+    <string name="app_prod_api_base_url">https://api.trainingpal.me</string>
+
+    <string name="app_next_button_text">\u00BB</string>
+    <string name="app_previous_button_text">\u00AB</string>
+</resources>

@@ -1,0 +1,91 @@
+<div id="calendar_container" class="container-fluid">
+  <div class="row justify-content-md-center">
+    <div class="col text-right">
+      <button class="btn-sm btn-outline-primary" (click)="onPreviousMonthClicked()"><i class="fa fa-caret-left"></i></button>
+    </div>
+
+    <div class="col-auto text-center">
+      <form [formGroup]="datePicker">
+
+        <div class="form-group">
+          <label for="month"></label>
+          <input
+            type = "month"
+            id = "month"
+            formControlName = "month">
+        </div>
+
+      </form>
+    </div>
+
+    <div class="col text-left">
+      <button class="btn-sm btn-outline-primary" (click)="onNextMonthClicked()"><i class="fa fa-caret-right"></i></button>
+    </div>
+  </div>
+
+  <br>
+
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th class="text-center"><strong>Sun</strong></th>
+        <th class="text-center"><strong>Mon</strong></th>
+        <th class="text-center"><strong>Tue</strong></th>
+        <th class="text-center"><strong>Wed</strong></th>
+        <th class="text-center"><strong>Thu</strong></th>
+        <th class="text-center"><strong>Fri</strong></th>
+        <th class="text-center"><strong>Sat</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let calendarWeek of calendarWeeks">
+        <td class="text-center" *ngFor="let calendarDay of calendarWeek">
+          <div *ngIf="calendarDay.isActive">
+            <h6 class="text-left">{{ calendarDay.DayNumber }}</h6>
+
+            <div *ngIf="calendarDay.hasData">
+              <div *ngFor="let log of calendarDay.Data">
+
+                <div *ngIf="log.Type_ID === '1'">
+                  <div class="text-center rest-block"><a href="javascript:void(0);" (click)="onLogClicked(log.Id)"><span>Rest Day</span></a></div>
+                </div>
+
+                <div *ngIf="log.Type_ID === '2'">
+                  <div class="text-center swimming-block"><a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                    <span>
+                      Swim
+                      <span *ngIf="log.Log_Time !== null"> - {{ log.Log_Time | timePipe }} </span>
+                    </span>
+                  </a></div>
+                </div>
+
+                <div *ngIf="log.Type_ID === '3'">
+                  <div class="text-center cycling-block"><a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                    <span>
+                      Cycle
+                      <span *ngIf="log.Log_Time !== null"> - {{ log.Log_Time | timePipe }} </span>
+                    </span>
+                  </a></div>
+                </div>
+
+                <div *ngIf="log.Type_ID === '4'">
+                  <div class="text-center running-block"><a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                    <span>
+                      Run
+                      <span *ngIf="log.Log_Time !== null"> - {{ log.Log_Time | timePipe }} </span>
+                    </span>
+                  </a></div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="!calendarDay.hasData">
+              <br>
+            </div>
+          </div>
+          <div class="dayNotActive" *ngIf="!calendarDay.isActive"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

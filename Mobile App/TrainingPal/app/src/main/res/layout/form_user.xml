@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <!-- USERNAME -->
+
+    <TextView
+        android:id="@+id/user_form_username_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/user_form_username_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_username_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_username_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:maxLength="20"
+        android:inputType="textNoSuggestions"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor"/>
+
+    <TextView
+        android:id="@+id/user_form_username_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_username_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- PASSWORD -->
+
+    <TextView
+        android:id="@+id/user_form_password_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_username_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_password_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_password_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_password_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:maxLength="20"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_password_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_password_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- CONFIRM PASSWORD -->
+
+    <TextView
+        android:id="@+id/user_form_confirm_password_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_password_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_confirm_password_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_confirm_password_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_confirm_password_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:maxLength="20"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_confirm_password_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_confirm_password_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- FIRST NAME -->
+
+    <TextView
+        android:id="@+id/user_form_firstname_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_confirm_password_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_firstname_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_firstname_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_firstname_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:maxLength="30"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_firstname_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_firstname_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- LAST NAME -->
+
+    <TextView
+        android:id="@+id/user_form_lastname_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_firstname_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_lastname_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_lastname_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_lastname_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:maxLength="30"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_lastname_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_lastname_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- EMAIL -->
+
+    <TextView
+        android:id="@+id/user_form_email_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_lastname_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_email_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_email_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_email_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:maxLength="40"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_email_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_email_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- DOB -->
+
+    <TextView
+        android:id="@+id/user_form_dob_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_email_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_dob_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_dob_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_dob_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_dob_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_dob_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- TYPE -->
+
+    <TextView
+        android:id="@+id/user_form_type_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_dob_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_type_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <Spinner
+        android:id="@+id/user_form_type_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_type_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_type_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_type_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- LOCATION -->
+
+    <TextView
+        android:id="@+id/user_form_location_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_type_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_location_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <Spinner
+        android:id="@+id/user_form_location_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_location_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_location_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_location_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+    <!-- BIO -->
+
+    <TextView
+        android:id="@+id/user_form_bio_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_location_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/user_form_bio_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_view_heading_size" />
+
+    <EditText
+        android:id="@+id/user_form_bio_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_form_bio_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:maxLength="1000"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@drawable/color_cursor" />
+
+    <TextView
+        android:id="@+id/user_form_bio_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_form_bio_label"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/text_view_error_size" />
+
+</RelativeLayout>

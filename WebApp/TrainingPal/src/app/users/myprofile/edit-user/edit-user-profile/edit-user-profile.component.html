@@ -1,0 +1,131 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="username">Username *</label>
+    <input
+      type="text"
+      id="username"
+      maxlength="20"
+      formControlName = "username"
+      class="form-control"
+      readonly>
+    <span
+      *ngIf="!userForm.get('username').valid && userForm.get('username').touched"
+      class="help-block">
+      <span *ngIf="userForm.get('username').errors['required']">
+        Username is required!
+      </span>
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name *</label>
+    <input
+      type="text"
+      id="firstName"
+      maxlength="30"
+      formControlName = "firstName"
+      class="form-control">
+    <span
+      *ngIf="!userForm.get('firstName').valid && userForm.get('firstName').touched"
+      class="help-block">
+      <span *ngIf="userForm.get('firstName').errors['required']">
+        First Name is required!
+      </span>
+    </span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="lastName">Last Name *</label>
+    <input
+      type="text"
+      id="lastName"
+      maxlength="30"
+      formControlName = "lastName"
+      class="form-control">
+    <span
+      *ngIf="!userForm.get('lastName').valid && userForm.get('lastName').touched"
+      class="help-block">
+      <span *ngIf="userForm.get('lastName').errors['required']">
+        Last Name is required!
+      </span>
+    </span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="email">Email *</label>
+    <input
+      type="email"
+      id="email"
+      maxlength="40"
+      formControlName = "email"
+      class="form-control">
+    <span
+      *ngIf="!userForm.get('email').valid && userForm.get('email').touched"
+      class="help-block">
+      <span>Email is invalid!</span>
+    </span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="dob">Date of Birth *</label>
+    <input
+      type="date"
+      id="dob"
+      formControlName = "dob"
+      class="form-control"
+      [max]="today">
+    <span
+      *ngIf="!userForm.get('dob').valid && userForm.get('dob').touched"
+      class="help-block">
+      <span *ngIf="userForm.get('dob').errors['required']">
+        Date of Birth is required!
+      </span>
+    </span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="location">Location *</label>
+    <select
+      id="location"
+      ngModel
+      formControlName = "location"
+      class="form-control">
+      <option *ngFor="let location of locations"
+              [value]="location">
+        {{ location }}
+      </option>
+    </select>
+
+    <span
+      *ngIf="!userForm.get('location').valid && userForm.get('location').touched"
+      class="help-block">
+
+      <span *ngIf="userForm.get('location').errors['required']">
+        Location is required!
+      </span>
+    </span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="bio">Bio</label>
+    <textarea
+      id="bio"
+      formControlName = "bio"
+      maxlength="1000"
+      rows="6"
+      class="form-control">
+    </textarea>
+  </div>
+
+  <br>
+
+  <div class="text-center">
+    <button class="btn btn-outline-primary" type="submit" [disabled]="!userForm.valid">Update My Profile</button>
+  </div>
+</form>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            formControlName = "username"
+            class="form-control">
+          <span
+            *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched"
+            class="help-block">
+            <span *ngIf="loginForm.get('username').errors['required']">
+              Username is required!
+            </span>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName = "password"
+            class="form-control">
+
+          <span
+            *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+            class="help-block">
+
+            <span *ngIf="loginForm.get('password').errors['required']">
+              Password is required!
+            </span>
+          </span>
+        </div>
+
+        <br>
+
+        <div class="text-center">
+          <button class="btn btn-outline-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+          <button class="btn btn-outline-danger" type="reset">Clear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="text-center">Don't have an account? <a routerLink="/signup"><strong>Sign Up Here!</strong></a></div>
+

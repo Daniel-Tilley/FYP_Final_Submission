@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fragment_my_profile_edit_button_text">Update My Profile</string>
+    <string name="user_profile_edit_profile_button_text">Edit Profile</string>
+</resources>

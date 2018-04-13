@@ -1,0 +1,131 @@
+<br>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+
+      <div class="card border-primary mb-3">
+
+        <div class="card-header text-center">{{ userMessage }}</div>
+        <div class="card-body text-center">
+
+          <div *ngIf="users?.length === 0">{{ noUserMessage }}</div>
+
+          <div *ngIf="users?.length !== 0">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Name</th>
+                  <th *ngIf="pageName==='search'">Location</th>
+                  <th *ngIf="pageName=='my-coaches'">Training Log Access</th>
+                  <th *ngIf="pageName=='my-coaches'">Targets Access</th>
+                  <th *ngIf="pageName=='my-athletes'">Training Log</th>
+                  <th *ngIf="pageName=='my-athletes'">Targets</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="pageName==='search'">
+                <tr *ngFor="let user of users" (click)="onUserClicked(user.Id)">
+                  <td>{{ user.Id }}</td>
+                  <td>{{ user.F_Name | nameChangePipe}} {{ user.L_Name | nameChangePipe}}</td>
+                  <td>{{ user.Location }}</td>
+                </tr>
+              </tbody>
+
+              <tbody *ngIf="pageName==='my-athletes'">
+                <tr *ngFor="let user of users">
+                  <td (click)="onUserClicked(user)">{{ user.Id }}</td>
+                  <td (click)="onUserClicked(user)">{{ user.F_Name | nameChangePipe}} {{ user.L_Name | nameChangePipe}}</td>
+                  <td *ngIf="pageName=='my-athletes'">
+                    <span *ngIf="user.Can_Access_Training_Log === '0'"><i class="fa fa-times not-completed"></i></span>
+                    <button class="btn btn-outline-primary" *ngIf="user.Can_Access_Training_Log === '1'" (click)="onTrainingLogClicked(user.Id)"><i class="fa fa-calendar"></i></button>
+                  </td>
+                  <td *ngIf="pageName=='my-athletes'">
+                    <span *ngIf="user.Can_Access_Targets === '0'"><i class="fa fa-times not-completed"></i></span>
+                    <button class="btn btn-outline-primary" *ngIf="user.Can_Access_Targets === '1'" (click)="onTargetClicked(user.Id)"><i class="fa fa-clipboard"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody *ngIf="pageName==='my-coaches'">
+              <tr *ngFor="let user of users" (click)="onUserClicked(user)" data-toggle="modal" data-target="#modalCoachAccess">
+                <td>{{ user.Id }}</td>
+                <td>{{ user.F_Name | nameChangePipe}} {{ user.L_Name | nameChangePipe}}</td>
+                <td>
+                  <span *ngIf="user.Can_Access_Training_Log === '0'"><i class="fa fa-times not-completed"></i></span>
+                  <span *ngIf="user.Can_Access_Training_Log === '1'"><i class="fa fa-check completed"></i></span>
+                </td>
+                <td>
+                  <span *ngIf="user.Can_Access_Targets === '0'"><i class="fa fa-times not-completed"></i></span>
+                  <span *ngIf="user.Can_Access_Targets === '1'"><i class="fa fa-check completed"></i></span>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <div *ngIf="pageName=='my-coaches'" id="modalCoachAccess" class="modal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">{{ currentUser?.Id }}</h5>
+                  <button type="button" class="close" data-dismiss="modal" (click)="clearParams()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-center">
+                  <form [formGroup]="coachAccessForm">
+
+                    <div class="form-group">
+                      <label for="training_log_access">Training Log Access</label>
+                      <div id="training_log_access">
+                        <label class="switch">
+                          <input formControlName = "training_log_access" type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="target_access">Target Access</label>
+                      <div id="target_access">
+                        <label class="switch">
+                          <input  formControlName = "target_access" type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      [disabled]="!coachAccessForm.valid"
+                      (click)="onUpdateClicked()"
+                      data-dismiss="modal">Update Access</button>
+                    <button
+                      class="btn btn-outline-info"
+                      type="button"
+                      (click)="onProfileClicked()"
+                      data-dismiss="modal">Go To Profile</button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger"
+                      (click)="onRevokeClicked()"
+                      data-dismiss="modal">Revoke Access</button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

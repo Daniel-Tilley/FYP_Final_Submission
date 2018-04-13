@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <!-- HEADER FIELD -->
+
+    <LinearLayout
+        android:id="@+id/training_log_form_header"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/training_log_form_page_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_view_heading_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+    <!-- INFO CONTAINER -->
+
+    <ScrollView
+        android:id="@+id/training_log_form_info_container"
+        android:layout_below="@id/training_log_form_header"
+        android:layout_above="@id/training_log_form_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ENTRY NAME -->
+
+            <TextView
+                android:id="@+id/training_log_form_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_name_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_name_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <EditText
+                android:id="@+id/training_log_form_name_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:maxLength="30"
+                android:inputType="textNoSuggestions"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <!-- ENTRY DATE -->
+
+            <TextView
+                android:id="@+id/training_log_form_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_date_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_date_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <EditText
+                android:id="@+id/training_log_form_date_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <!-- ENTRY TIME -->
+
+            <TextView
+                android:id="@+id/training_log_form_time_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_time_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_time_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <EditText
+                android:id="@+id/training_log_form_time_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <!-- WORKOUT COMMENTS -->
+
+            <TextView
+                android:id="@+id/training_log_form_description_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_desc_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_description_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <EditText
+                android:id="@+id/training_log_form_description_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:maxLength="500"
+                android:inputType="textMultiLine"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <!-- ENTRY TYPE -->
+
+            <TextView
+                android:id="@+id/training_log_form_type_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_type_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_type_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <Spinner
+                android:id="@+id/training_log_form_type_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- DATA CONTAINER -->
+
+    <ScrollView
+        android:id="@+id/training_log_form_data_container"
+        android:layout_below="@id/training_log_form_header"
+        android:layout_above="@id/training_log_form_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!-- region PLANNED VALUES -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/training_log_form_planned_heading"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorPrimary"/>
+
+                <!-- DURATION -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_duration_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_duration_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_duration_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_planned_duration_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- DISTANCE -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_distance_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_distance_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_distance_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <LinearLayout
+                    android:id="@+id/training_log_form_planned_distance_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/training_log_form_planned_distance_field"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:maxLength="7"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textCursorDrawable="@drawable/color_cursor"/>
+
+                    <Spinner
+                        android:id="@+id/training_log_form_planned_distance_unit"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+                </LinearLayout>
+
+                <!-- RESTING HR -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_resting_hr_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_resting_hr_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_resting_hr_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_planned_resting_hr_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- AVERAGE HR -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_avg_hr_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_avg_hr_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_avg_hr_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_planned_avg_hr_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- MAX HR -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_max_hr_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_max_hr_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_max_hr_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_planned_max_hr_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- AVG WATTS -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_avg_watts_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_avg_watts_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_avg_watts_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_planned_avg_watts_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- MAX WATTS -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_max_watts_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_max_watts_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_max_watts_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_planned_max_watts_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- RPE -->
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_rpe_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_rpe_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_planned_rpe_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_planned_rpe_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="2"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <!-- endregion -->
+
+            <!-- region ACTUAL VALUES -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/training_log_form_actual_heading"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"
+                android:layout_marginBottom="15dp"/>
+
+                <!-- DURATION -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_duration_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_duration_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_duration_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_actual_duration_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- DISTANCE -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_distance_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_distance_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_distance_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <LinearLayout
+                    android:id="@+id/training_log_form_actual_distance_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/training_log_form_actual_distance_field"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:maxLength="7"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textCursorDrawable="@drawable/color_cursor"/>
+
+                    <Spinner
+                        android:id="@+id/training_log_form_actual_distance_unit"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+                </LinearLayout>
+
+                <!-- RESTING HR -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_resting_hr_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_resting_hr_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_resting_hr_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_actual_resting_hr_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- AVERAGE HR -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_avg_hr_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_avg_hr_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_avg_hr_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_actual_avg_hr_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- MAX HR -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_max_hr_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_max_hr_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_max_hr_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_actual_max_hr_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- AVG WATTS -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_avg_watts_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_avg_watts_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_avg_watts_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_actual_avg_watts_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- MAX WATTS -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_max_watts_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_max_watts_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_max_watts_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_actual_max_watts_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- RPE -->
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_rpe_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_rpe_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_actual_rpe_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_actual_rpe_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="2"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <!-- endregion -->
+
+            <!-- region ADDITIONAL VALUES -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/training_log_form_additional_values"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorPrimary"/>
+
+                <!-- CALORIES BURNED -->
+
+                <TextView
+                    android:id="@+id/training_log_form_calories_burned_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_calories_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_calories_burned_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_calories_burned_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- HR ZONE 1 -->
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_1_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_zone1_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_1_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_hr_zone_1_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- HR ZONE 2 -->
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_2_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_zone2_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_2_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_hr_zone_2_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- HR ZONE 3 -->
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_3_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_zone3_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_3_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_hr_zone_3_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- HR ZONE 4 -->
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_4_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_zone4_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_4_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_hr_zone_4_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- HR ZONE 5 -->
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_5_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_zone5_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_5_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_hr_zone_5_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- HR ZONE 6 -->
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_6_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_zone6_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_hr_zone_6_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <EditText
+                    android:id="@+id/training_log_form_hr_zone_6_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor"/>
+
+                <!-- SLEEP QUALITY -->
+
+                <TextView
+                    android:id="@+id/training_log_form_sleep_quality_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/training_log_form_sleep_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_view_heading_size" />
+
+                <TextView
+                    android:id="@+id/training_log_form_sleep_quality_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/text_view_error_size" />
+
+                <Spinner
+                    android:id="@+id/training_log_form_sleep_quality_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/color_cursor" />
+
+            <!-- endregion -->
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- EXTRAS CONTAINER -->
+
+    <ScrollView
+        android:id="@+id/training_log_form_extras_container"
+        android:layout_below="@id/training_log_form_header"
+        android:layout_above="@id/training_log_form_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ATHLETES COMMENTS -->
+
+            <TextView
+                android:id="@+id/training_log_form_athletes_comments_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_athletes_comments_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_athletes_comments_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <EditText
+                android:id="@+id/training_log_form_athletes_comments_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:maxLength="250"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor" />
+
+            <!-- COACHES COMMENTS -->
+
+            <TextView
+                android:id="@+id/training_log_form_coachs_comments_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_coaches_comments_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_coachs_comments_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <EditText
+                android:id="@+id/training_log_form_coachs_comments_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:maxLength="250"
+                android:inputType="textMultiLine"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <!-- WORKOUT COMMENTS -->
+
+            <TextView
+                android:id="@+id/training_log_form_workout_comments_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/training_log_form_workout_comments_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_view_heading_size" />
+
+            <TextView
+                android:id="@+id/training_log_form_workout_comments_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/text_view_error_size" />
+
+            <EditText
+                android:id="@+id/training_log_form_workout_comments_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:maxLength="500"
+                android:inputType="textMultiLine"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/training_log_form_button_container">
+
+                <Button
+                    android:id="@+id/training_log_form_final_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- NAV BAR -->
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/training_log_form_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorAccent"
+        app:menu="@menu/training_log_bottom_nav_menu" />
+
+</RelativeLayout>

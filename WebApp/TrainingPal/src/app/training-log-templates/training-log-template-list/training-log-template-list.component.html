@@ -1,0 +1,21 @@
+<br>
+
+<div class="row justify-content-center">
+  <div class="col">
+    <div class="card border-primary mb-3">
+      <div class="card-header text-center">Your Templates <span class="badge badge-primary badge-pill">{{ templates?.length }}</span></div>
+      <div class="card-body text-center">
+        <div *ngIf="templates?.length === 0">No Entries!</div>
+        <div *ngIf="templates?.length !== 0">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let template of templates">
+              <a href="javascript:void(0);" (click)="onTemplateClicked(template.Id)">
+                <span>{{ template.Name }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

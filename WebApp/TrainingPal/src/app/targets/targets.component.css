@@ -1,0 +1,19 @@
+.completed {
+  text-decoration: none;
+  color: rgb(0, 255, 131);
+}
+
+.not-completed {
+  text-decoration: none;
+  color: rgb(255, 63, 58);
+}
+
+::-webkit-clear-button { display: none; }
+::-webkit-inner-spin-button {  display: none; }
+::-webkit-datetime-edit-text { color: #2D9FE3; }
+::-webkit-datetime-edit-week-field { color: #2D9FE3; }
+::-webkit-datetime-edit-year-field { color: #2D9FE3; }
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

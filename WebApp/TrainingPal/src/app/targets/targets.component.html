@@ -1,0 +1,175 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+
+      <div class="card border-primary mb-3">
+        <div class="card-header text-center">Your Targets <span class="badge badge-primary badge-pill">{{ targets?.length }}</span></div>
+        <div class="card-body text-center">
+
+          <div class="row justify-content-md-center">
+            <div class="col text-right">
+              <button class="btn-sm btn-outline-primary" (click)="decrementWeek()"><i class="fa fa-caret-left"></i></button>
+            </div>
+
+            <div class="col-auto text-center">
+              <form [formGroup]="datePicker">
+
+                <div class="form-group">
+                  <label for="week"></label>
+                  <input
+                    type = "week"
+                    id = "week"
+                    formControlName = "week">
+                </div>
+
+              </form>
+            </div>
+
+            <div class="col text-left">
+              <button class="btn-sm btn-outline-primary" (click)="incrementWeek()"><i class="fa fa-caret-right"></i></button>
+            </div>
+          </div>
+
+          <div *ngIf="targets?.length === 0">
+            <hr>
+            <p>No Entries!</p>
+          </div>
+          <div *ngIf="targets?.length !== 0">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let target of targets">
+                <a href="javascript:void(0);" (click)="onTargetClicked(target)" data-toggle="modal" data-target="#modalUpdateTarget">
+                  <span>
+                    {{ target.Content }}
+                  </span>
+                </a>
+
+                <span *ngIf="target.Status === '0'">&nbsp; <i class="fa fa-times not-completed"></i></span>
+                <span *ngIf="target.Status === '1'">&nbsp; <i class="fa fa-check completed"></i></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-footer text-muted text-center">
+          <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modalCreateTarget">Create New Target</button>
+        </div>
+      </div>
+
+
+      <div id="modalCreateTarget" class="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Create Target</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              <form [formGroup]="createTargetForm">
+
+                <div class="form-group">
+                  <label for="create_content">Target *</label>
+                  <textarea
+                    id="create_content"
+                    formControlName = "create_content"
+                    maxlength="250"
+                    rows="6"
+                    class="form-control"
+                    placeholder="E.g: Get a good amount of sleep this week">
+                  </textarea>
+                  <span
+                    *ngIf="!createTargetForm.get('create_content').valid && createTargetForm.get('create_content').touched"
+                    class="help-block">
+                    <span *ngIf="createTargetForm.get('create_content').errors['required']">
+                      Target is Required!
+                    </span>
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="create_completed_button_container">Completed *</label>
+                  <div id="create_completed_button_container">
+                    <input type="radio" formControlName="create_completed" value="0"> No
+                    <input type="radio" formControlName="create_completed" value="1"> Yes
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="text-center"></div>
+                <button
+                  class="btn btn-outline-primary"
+                  type="button"
+                  [disabled]="!createTargetForm.valid"
+                  (click)="onCreateSubmit()"
+                  data-dismiss="modal">Create Target</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modalUpdateTarget" class="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Selected Target</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              <form [formGroup]="updateTargetForm">
+
+                <div class="form-group">
+                  <label for="update_content">Target *</label>
+                  <textarea
+                    id="update_content"
+                    formControlName = "update_content"
+                    maxlength="250"
+                    rows="6"
+                    class="form-control"
+                    placeholder="E.g: Get a good amount of sleep this week">
+                  </textarea>
+                  <span
+                    *ngIf="!updateTargetForm.get('update_content').valid && updateTargetForm.get('update_content').touched"
+                    class="help-block">
+                    <span *ngIf="updateTargetForm.get('update_content').errors['required']">
+                      Target is Required!
+                    </span>
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="create_completed_button_container">Completed *</label>
+                  <div id="update_completed_button_container">
+                    <input type="radio" formControlName="update_completed" value="0"> No
+                    <input type="radio" formControlName="update_completed" value="1"> Yes
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="text-center"></div>
+                <button
+                  class="btn btn-outline-primary"
+                  type="button"
+                  [disabled]="!updateTargetForm.valid"
+                  (click)="onUpdateSubmit()"
+                  data-dismiss="modal">Update Target</button>
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  (click)="onDeleteTargetClicked()"
+                  data-dismiss="modal">Delete Target</button>
+
+              </form>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

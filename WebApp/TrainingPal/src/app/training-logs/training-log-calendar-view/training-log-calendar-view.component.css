@@ -1,0 +1,44 @@
+td a {
+  display:block;
+  width:100%;
+  text-decoration: none;
+}
+
+td {
+  width: 14.2857%;
+}
+
+td:hover {
+  background-color: #E9ECEF;
+}
+
+::-webkit-clear-button { display: none; }
+::-webkit-inner-spin-button {  display: none; }
+::-webkit-datetime-edit-month-field { color: #2D9FE3; }
+::-webkit-datetime-edit-year-field { color: #2D9FE3; }
+
+.rest-block {
+  background-color: rgba(255,0,8,0.50);
+  border: solid 1px white;
+}
+
+.swimming-block {
+  background-color: rgba(0,255,239,0.50);
+  border: solid 1px white;
+}
+
+.cycling-block {
+  background-color: rgba(98,255,67,0.50);
+  border: solid 1px white;
+}
+
+.running-block {
+  background-color: rgba(255,143,0,0.50);
+  border: solid 1px white;
+}
+
+td a {
+  color: black;
+}
+
+

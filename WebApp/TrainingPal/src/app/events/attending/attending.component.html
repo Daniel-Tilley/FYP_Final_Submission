@@ -1,0 +1,19 @@
+<div class="card border-primary mb-3">
+  <div class="card-header text-center">Attending Events <span class="badge badge-primary badge-pill">{{ events?.length }}</span></div>
+  <div class="card-body text-center">
+    <div *ngIf="events?.length === 0">No Events!</div>
+    <div *ngIf="events?.length !== 0">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let event of events">
+          <a href="javascript:void(0);" (click)="onEventClicked(event)">
+            <span>
+              {{ event.Host_Username }} - {{ event.Name }} - {{ event.Event_Date | date:'MMM d' }}
+              <span *ngIf="event.Type === '1'"> - One To One </span>
+              <span *ngIf="event.Type === '2'"> - Video Con </span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

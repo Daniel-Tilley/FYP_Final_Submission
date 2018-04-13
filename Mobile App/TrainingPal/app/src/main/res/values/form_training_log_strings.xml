@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="training_log_form_entry_prefix"><b>Entry</b></string>
+    <string name="training_log_form_required_indicator">*</string>
+
+    <string name="training_log_form_name_label"><b>Name</b></string>
+    <string name="training_log_form_date_label"><b>Date</b></string>
+    <string name="training_log_form_time_label"><b>Time</b></string>
+    <string name="training_log_form_type_label"><b>Type</b></string>
+    <string name="training_log_form_desc_label"><b>Description</b></string>
+
+
+    <string name="training_log_form_duration_label"><b>Duration</b></string>
+    <string name="training_log_form_distance_label"><b>Distance</b></string>
+    <string name="training_log_form_resting_hr_label"><b>Resting HeartRate</b></string>
+    <string name="training_log_form_avg_hr_label"><b>Average HeartRate</b></string>
+    <string name="training_log_form_max_hr_label"><b>Max HeartRate</b></string>
+    <string name="training_log_form_avg_watts_label"><b>Average Watts</b></string>
+    <string name="training_log_form_max_watts_label"><b>Max Watts</b></string>
+    <string name="training_log_form_rpe_label"><b>RPE (1-10)</b></string>
+
+    <string name="training_log_form_calories_label"><b>Calories Burned</b></string>
+    <string name="training_log_form_zone1_label"><b>HR Zone 1 Time</b></string>
+    <string name="training_log_form_zone2_label"><b>HR Zone 2 Time</b></string>
+    <string name="training_log_form_zone3_label"><b>HR Zone 3 Time</b></string>
+    <string name="training_log_form_zone4_label"><b>HR Zone 4 Time</b></string>
+    <string name="training_log_form_zone5_label"><b>HR Zone 5 Time</b></string>
+    <string name="training_log_form_zone6_label"><b>HR Zone 6 Time</b></string>
+    <string name="training_log_form_sleep_label"><b>Sleep Quality</b></string>
+
+    <string name="training_log_form_athletes_comments_label"><b>Athletes Comments</b></string>
+    <string name="training_log_form_coaches_comments_label"><b>Coaches Comments</b></string>
+    <string name="training_log_form_workout_comments_label"><b>Workout Comments</b></string>
+
+    <string name="training_log_form_the_info_header"><b>Log Info</b></string>
+    <string name="training_log_form_info_page_name"><b>The Info</b></string>
+    <string name="training_log_form_data_page_name"><b>The Data</b></string>
+    <string name="training_log_form_extras_page_name"><b>The Comments</b></string>
+
+    <string name="training_log_form_planned_heading"><b>Planned Values</b></string>
+    <string name="training_log_form_actual_heading"><b>Actual Values</b></string>
+    <string name="training_log_form_additional_values"><b>Additional Values</b></string>
+</resources>

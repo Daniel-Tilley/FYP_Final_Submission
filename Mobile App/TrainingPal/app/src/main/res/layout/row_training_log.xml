@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:stretchColumns="*">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/row_training_log_name_label"
+                android:text="@string/training_log_form_name_label"
+                android:gravity="right"
+                android:padding="5dip" />
+            <TextView
+                android:id="@+id/row_training_log_name_field"
+                android:gravity="left"
+                android:padding="5dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/row_training_log_date_label"
+                android:text="@string/training_log_form_date_label"
+                android:gravity="right"
+                android:padding="5dip" />
+            <TextView
+                android:id="@+id/row_training_log_date_field"
+                android:gravity="left"
+                android:padding="5dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/row_training_log_type_label"
+                android:text="@string/training_log_form_type_label"
+                android:gravity="right"
+                android:padding="5dip" />
+            <TextView
+                android:id="@+id/row_training_log_type_field"
+                android:gravity="left"
+                android:padding="5dip" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

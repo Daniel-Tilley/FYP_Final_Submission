@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0"
+    android:shrinkColumns="1">
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_username_label"
+            android:text="@string/user_form_username_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_username_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_first_name_label"
+            android:text="@string/user_form_firstname_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_first_name_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_last_name_label"
+            android:text="@string/user_form_lastname_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_last_name_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_email_label"
+            android:text="@string/user_form_email_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_email_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_date_of_birth_label"
+            android:text="@string/user_form_dob_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_date_of_birth_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_type_label"
+            android:text="@string/user_form_type_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_type_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_location_label"
+            android:text="@string/user_form_location_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_location_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/user_profile_bio_label"
+            android:text="@string/user_form_bio_label"
+            android:padding="5dip" />
+        <TextView
+            android:id="@+id/user_profile_bio_value"
+            android:gravity="center"
+            android:padding="5dip" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/user_profile_edit_profile_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/user_profile_edit_profile_button_text" />
+    </TableRow>
+</TableLayout>
+

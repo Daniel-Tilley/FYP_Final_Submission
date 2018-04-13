@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+
+      <h4 class="text-center">Your Entries</h4>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-4 col-lg-4 col-xl-4">
+          <div class="card border-primary mb-3">
+            <div class="card-header text-center">This Weeks Swimming Entries <span class="badge badge-primary badge-pill">{{ swimmingWorkouts?.length }}</span></div>
+            <div class="card-body text-center">
+              <div *ngIf="swimmingWorkouts?.length === 0">No Entries!</div>
+              <div *ngIf="swimmingWorkouts?.length !== 0">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let log of swimmingWorkouts">
+                    <a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                      <span>
+                        {{ log.Log_Name === null && 'No Name' ||  log.Log_Name }}
+                        - {{ log.Log_Date | date:'EEE, MMM d' }}
+                        <span *ngIf="log.Log_Time !== null"> - {{log.Log_Time | timePipe }} </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-lg-4 col-xl-4">
+          <div class="card border-primary mb-3">
+            <div class="card-header text-center">This Weeks Cycling Entries <span class="badge badge-primary badge-pill">{{ cyclingWorkouts?.length }}</span></div>
+            <div class="card-body text-center">
+              <div *ngIf="cyclingWorkouts?.length === 0">No Entries!</div>
+              <div *ngIf="cyclingWorkouts?.length !== 0">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let log of cyclingWorkouts">
+                    <a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                      <span>
+                        {{ log.Log_Name === null && 'No Name' ||  log.Log_Name }}
+                        - {{ log.Log_Date | date:'EEE, MMM d' }}
+                        <span *ngIf="log.Log_Time !== null"> - {{log.Log_Time | timePipe }} </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-lg-4 col-xl-4">
+          <div class="card border-primary mb-3">
+            <div class="card-header text-center">This Weeks Running Entries <span class="badge badge-primary badge-pill">{{ runningWorkouts?.length }}</span></div>
+            <div class="card-body text-center">
+              <div *ngIf="runningWorkouts?.length === 0">No Entries!</div>
+              <div *ngIf="runningWorkouts?.length !== 0">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let log of runningWorkouts">
+                    <a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                      <span>
+                        {{ log.Log_Name === null && 'No Name' ||  log.Log_Name }}
+                        - {{ log.Log_Date | date:'EEE, MMM d' }}
+                        <span *ngIf="log.Log_Time !== null"> - {{log.Log_Time | timePipe }} </span>
+                    </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<br>
+
+<div class="row justify-content-center">
+  <div class="col">
+    <div class="card mb-3">
+      <h4 class="card-header text-center">{{ template?.Name }}</h4>
+
+      <br>
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-6 col-lg-6 col-xl-6">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col" colspan="2" class="text-center">Planned Values</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-light">
+              <th scope="row">Duration:</th>
+              <td>{{ template?.Duration_Planned }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Distance:</th>
+              <td>{{ template?.Distance_Planned }} {{ template?.Distance_Unit }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Resting HR:</th>
+              <td>{{ template?.HR_Resting_Planned }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Average HR:</th>
+              <td>{{ template?.HR_Avg_Planned }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Max HR:</th>
+              <td>{{ template?.HR_Max_Planned }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Average Watts:</th>
+              <td>{{ template?.Watts_Avg_Planned }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Max Watts:</th>
+              <td>{{ template?.Watts_Max_Planned }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">R.P.E:</th>
+              <td>{{ template?.RPE_Planned }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="col-md-6 col-lg-6 col-xl-6">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col" colspan="2" class="text-center">Actual Values</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-light">
+              <th scope="row">Duration:</th>
+              <td>{{ template?.Duration_Actual }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Distance:</th>
+              <td>{{ template?.Distance_Actual }} {{ template?.Distance_Unit }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Resting HR:</th>
+              <td>{{ template?.HR_Resting_Actual }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Average HR:</th>
+              <td>{{ template?.HR_Avg_Actual }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Max HR:</th>
+              <td>{{ template?.HR_Max_Actual }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Average Watts:</th>
+              <td>{{ template?.Watts_Avg_Actual }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Max Watts:</th>
+              <td>{{ template?.Watts_Max_Actual }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">R.P.E:</th>
+              <td>{{ template?.RPE_Actual }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="col">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col" colspan="2" class="text-center">Extra Values</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr class="table-light">
+              <th scope="row">Zone 1 Time:</th>
+              <td>{{ template?.HR_Zone1_Time }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Zone 2 Time:</th>
+              <td>{{ template?.HR_Zone2_Time }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Zone 3 Time:</th>
+              <td>{{ template?.HR_Zone3_Time }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Zone 4 Time:</th>
+              <td>{{ template?.HR_Zone4_Time }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Zone 5 Time:</th>
+              <td>{{ template?.HR_Zone5_Time }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Zone 6 Time:</th>
+              <td>{{ template?.HR_Zone6_Time }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div class="card-body card-footer text-center">
+        <button type="button" class="btn btn-outline-primary" (click)="onEditClicked()">Edit</button>
+        <button type="button" class="btn btn-outline-danger" (click)="onDeleteClicked()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

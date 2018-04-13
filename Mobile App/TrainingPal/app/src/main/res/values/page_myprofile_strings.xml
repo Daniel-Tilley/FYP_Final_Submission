@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="myprofile_page_name">My Profile</string>
+    <string name="edit_profile_page_name">Edit Profile</string>
+    <string name="edit_profile_button_text">Update User</string>
+</resources>

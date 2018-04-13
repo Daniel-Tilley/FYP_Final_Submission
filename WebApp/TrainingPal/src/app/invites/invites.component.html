@@ -1,0 +1,85 @@
+<br>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+
+      <br>
+
+      <div class="card border-primary mb-3">
+        <div class="card-header text-center"> <h2 class="text-center">Your Invites</h2> </div>
+        <div class="card-body text-center">
+
+          <div *ngIf="invites?.length === 0">No Invites!</div>
+          <table class="table table-hover" *ngIf="invites.length !== 0">
+            <thead>
+            <tr>
+              <th>Sent By</th>
+              <th>Type</th>
+              <th>Send Date</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr data-toggle="modal" data-target="#modalInvite" *ngFor="let invite of invites" [ngClass]="{'un-opened': invite?.Status === '1'}" (click)="onInviteClicked(invite) ">
+                <td>{{ invite?.Sent_By }}</td>
+                <td>
+                  <span *ngIf="invite?.Invite_Type === '1'">
+                     <i *ngIf="invite?.Status === '1'" class="fa fa-envelope"></i><i *ngIf="invite?.Status === '2'" class="fa fa-envelope-open"></i> - One to One
+                  </span>
+                  <span *ngIf="invite?.Invite_Type === '2'">
+                     <i *ngIf="invite?.Status === '1'" class="fa fa-envelope"></i><i *ngIf="invite?.Status === '2'" class="fa fa-envelope-open"></i> - Video Conference
+                  </span>
+                  <span *ngIf="invite?.Invite_Type === '3'">
+                     <i *ngIf="invite?.Status === '1'" class="fa fa-envelope"></i><i *ngIf="invite?.Status === '2'" class="fa fa-envelope-open"></i> - Data Access
+                  </span>
+                  <span *ngIf="invite?.Invite_Type === '4'">
+                     <i *ngIf="invite?.Status === '1'" class="fa fa-envelope"></i><i *ngIf="invite?.Status === '2'" class="fa fa-envelope-open"></i> - Data Access
+                  </span>
+                </td>
+                <td>{{ invite?.Send_Date | date:'MMM d' }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+      <div id="modalInvite" class="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">
+                {{ currentInvite?.Sent_By }} -
+                <span *ngIf="currentInvite?.Invite_Type === '1'">One to One</span>
+                <span *ngIf="currentInvite?.Invite_Type === '2'">Video Conference</span>
+                <span *ngIf="currentInvite?.Invite_Type === '3'">Data Access</span>
+                <span *ngIf="currentInvite?.Invite_Type === '4'">Data Access</span>
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" (click)="onCloseClicked()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+
+              <button
+                class="btn btn-outline-success"
+                type="button"
+                (click)="onAcceptClicked()"
+                data-dismiss="modal">Accept</button>
+
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                (click)="onDeclineClicked()"
+                data-dismiss="modal">Decline</button>
+
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

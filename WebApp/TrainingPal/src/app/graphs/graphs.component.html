@@ -1,0 +1,119 @@
+<div class="container-fluid">
+
+  <hr>
+
+  <div class="row justify-content-center"> <h3>Training Log Entry Type BreakDown</h3> </div>
+  <hr>
+  <p class="text-center">The average actual time (in minutes) spent on each log entry type this month.</p>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+      <p class="text-center" *ngIf="typeChartData.length === 0">Enter some data in order to see the graph!</p>
+      <div style="display: block" *ngIf="typeChartData.length > 0">
+        <canvas baseChart
+                [data]="typeChartData"
+                [labels]="typeChartLabels"
+                [chartType]="typeChartType"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row justify-content-center"> <h3>Training Log Heart Rate BreakDown</h3> </div>
+  <hr>
+  <p class="text-center">The average HR value per log entry this month.</p>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+      <div>
+        <p class="text-center" *ngIf="hrChartData.length === 0">Enter some data in order to see the graph!</p>
+        <div style="display: block" *ngIf="hrChartData.length > 0">
+          <canvas baseChart
+                  [datasets]="hrChartData"
+                  [labels]="hrChartLabels"
+                  [options]="hrChartOptions"
+                  [legend]="hrChartLegend"
+                  [chartType]="hrChartType"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row justify-content-center"> <h3>Training Log Watts BreakDown</h3> </div>
+  <hr>
+  <p class="text-center">The average Watts value per log entry this month.</p>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+      <div>
+        <p class="text-center" *ngIf="wattsChartData.length === 0">Enter some data in order to see the graph!</p>
+        <div style="display: block" *ngIf="wattsChartData.length > 0">
+          <canvas baseChart
+                  [datasets]="wattsChartData"
+                  [labels]="wattsChartLabels"
+                  [options]="wattsChartOptions"
+                  [legend]="wattsChartLegend"
+                  [chartType]="wattsChartType"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row justify-content-center"> <h3>Training Log RPE BreakDown</h3> </div>
+  <hr>
+  <p class="text-center">The number of log entries a given RPE level relates to.</p>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+      <p class="text-center" *ngIf="rpeChartData.length === 0">Enter some data in order to see the graph!</p>
+      <div style="display: block" *ngIf="rpeChartData.length > 0">
+        <canvas baseChart
+                [datasets]="rpeChartData"
+                [labels]="rpeChartLabels"
+                [chartType]="rpeChartType"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row justify-content-center"> <h3>Training Log HR Zone BreakDown</h3> </div>
+  <hr>
+  <p class="text-center">The amount of time (in minutes) spent in each zone per log entry this month.</p>
+  <hr>
+  <div class="row justify-content-center" >
+    <div class="col-md-8 col-lg-8 col-xl-8">
+      <p class="text-center" *ngIf="hrZoneChartData.length === 0">Enter some data in order to see the graph!</p>
+      <div style="display: block" *ngIf="hrZoneChartData.length > 0">
+        <canvas baseChart
+                [data]="hrZoneChartData"
+                [labels]="hrZoneChartLabels"
+                [chartType]="hrZoneChartType"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row justify-content-center"> <h3>Training Log Sleep BreakDown</h3> </div>
+  <hr>
+  <p class="text-center">The number of log entries a given Sleep Quality relates to.</p>
+  <hr>
+  <div class="row justify-content-center">
+    <p class="text-center" *ngIf="polarAreaChartData.length === 0">Enter some data in order to see the graph!</p>
+    <div class="col-md-8 col-lg-8 col-xl-8" *ngIf="polarAreaChartData.length > 0">
+      <canvas baseChart
+              [data]="polarAreaChartData"
+              [labels]="polarAreaChartLabels"
+              [legend]="polarAreaLegend"
+              [chartType]="polarAreaChartType"></canvas>
+    </div>
+  </div>
+
+  <hr>
+</div>

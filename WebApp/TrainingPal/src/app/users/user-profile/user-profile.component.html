@@ -1,0 +1,161 @@
+<br>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+
+      <h4 class="text-center">Profile</h4>
+
+      <br>
+
+      <table class="table">
+        <tbody>
+
+          <tr class="table-light">
+            <th scope="row">Username:</th>
+            <td>{{ user?.Id }}</td>
+          </tr>
+
+          <tr class="table-light">
+            <th scope="row">First Name:</th>
+            <td>{{ user?.F_Name | nameChangePipe }}</td>
+          </tr>
+
+          <tr class="table-light">
+            <th scope="row">Last Name:</th>
+            <td>{{ user?.L_Name | nameChangePipe }}</td>
+          </tr>
+
+          <tr class="table-light">
+            <th scope="row">Email Address:</th>
+            <td>{{ user?.E_Mail }}</td>
+          </tr>
+
+          <tr class="table-light">
+            <th scope="row">Date of Birth:</th>
+            <td>{{ user?.DOB | date }}</td>
+          </tr>
+
+          <tr class="table-light">
+            <th scope="row">Profile Type:</th>
+            <td>{{ user?.Type }}</td>
+          </tr>
+
+          <tr class="table-light">
+            <th scope="row">Location:</th>
+            <td>{{ user?.Location }}</td>
+          </tr>
+
+          <tr class="table-light">
+            <th scope="row">Bio:</th>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{ user?.Bio }}</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <br>
+
+      <h4 class="text-center">Access</h4>
+
+      <table class="table">
+        <tbody>
+          <tr class="table-light" *ngIf="showCoachOptions">
+            <td colspan="2" class="text-center">
+              <button *ngIf="hasTrainingLogAccess && !noAccess && !requestedAccess" class="btn btn-outline-primary" (click)="onTrainingLogClicked()"><i class="fa fa-calendar"></i> Training Log</button>
+              <button *ngIf="noAccess && !requestedAccess" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalAccess" (click)="clearAlert()">Request Access</button>
+              <span *ngIf="!noAccess && requestedAccess">Access Has Been Requested!</span>
+              <button *ngIf="hasTargetsAccess && !noAccess &&!requestedAccess" class="btn btn-outline-primary" (click)="onTargetsClicked()"><i class="fa fa-clipboard"></i> Targets</button>
+            </td>
+          </tr>
+
+          <tr class="table-light" *ngIf="showAthleteOptions && noAccess">
+            <td colspan="2" class="text-center">
+              <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modalAccess" (click)="clearAlert()">Grant Access</button>
+            </td>
+          </tr>
+
+          <tr class="table-light text-center" *ngIf="showAthleteOptions && !noAccess">
+            <th>Training Log:</th>
+            <th>Targets:</th>
+          </tr>
+
+          <tr class="table-light text-center" *ngIf="showAthleteOptions && !noAccess">
+            <td *ngIf="hasTrainingLogAccess"><i class="fa fa-check completed"></i></td>
+            <td *ngIf="!hasTrainingLogAccess"><i class="fa fa-times not-completed"></i></td>
+            <td *ngIf="hasTargetsAccess"><i class="fa fa-check completed"></i></td>
+            <td *ngIf="!hasTargetsAccess"><i class="fa fa-times not-completed"></i></td>
+          </tr>
+
+          <tr class="table-light" *ngIf="showAthleteOptions && !noAccess">
+            <td colspan="2" class="text-center">
+              <button class="btn btn-outline-primary" (click)="onEditAccessClicked()">Manage Access</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div *ngIf="noAccess" id="modalAccess" class="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ user?.Id }}</h5>
+            </div>
+
+            <div class="modal-body text-center">
+              <form [formGroup]="accessForm">
+
+                <div class="form-group">
+                  <label for="training_log_access">Training Log Access</label>
+                  <div id="training_log_access">
+                    <label class="switch">
+                      <input formControlName = "training_log_access" type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="target_access">Target Access</label>
+                  <div id="target_access">
+                    <label class="switch">
+                      <input  formControlName = "target_access" type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <hr>
+
+                <button
+                  *ngIf="showAthleteOptions"
+                  class="btn btn-outline-success"
+                  type="button"
+                  [disabled]="!accessForm.valid"
+                  (click)="onGrantAccessClicked()"
+                  data-dismiss="modal">Grant</button>
+
+                <button
+                  *ngIf="showCoachOptions"
+                  class="btn btn-outline-success"
+                  type="button"
+                  [disabled]="!accessForm.valid"
+                  (click)="onRequestAccessClicked()"
+                  data-dismiss="modal">Request</button>
+
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  data-dismiss="modal">Cancel</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

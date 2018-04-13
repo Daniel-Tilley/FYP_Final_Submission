@@ -1,0 +1,197 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="username">Username *</label>
+          <input
+            type="text"
+            id="username"
+            maxlength="20"
+            minlength="6"
+            formControlName = "username"
+            class="form-control">
+          <span
+            *ngIf="!signUpForm.get('username').valid && signUpForm.get('username').touched"
+            class="help-block">
+
+            <span *ngIf="signUpForm.get('username').errors['required']">
+              Username is required!
+            </span>
+
+            <span *ngIf="signUpForm.get('username').errors['minlength']">
+                Username must be at least 6 characters!
+            </span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="password">Password *</label>
+          <input
+            type="password"
+            id="password"
+            maxlength="20"
+            minlength="6"
+            formControlName = "password"
+            class="form-control">
+
+          <span
+            *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched"
+            class="help-block">
+
+            <span *ngIf="signUpForm.get('password').errors['required']">
+              Password is required!
+            </span>
+
+            <span *ngIf="signUpForm.get('password').errors['minlength']">
+                Passwords must be at least 6 characters!
+            </span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input
+            type="text"
+            id="firstName"
+            maxlength="30"
+            formControlName = "firstName"
+            class="form-control">
+          <span
+            *ngIf="!signUpForm.get('firstName').valid && signUpForm.get('firstName').touched"
+            class="help-block">
+            <span *ngIf="signUpForm.get('firstName').errors['required']">
+              First Name is required!
+            </span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input
+            type="text"
+            id="lastName"
+            maxlength="30"
+            formControlName = "lastName"
+            class="form-control">
+          <span
+            *ngIf="!signUpForm.get('lastName').valid && signUpForm.get('lastName').touched"
+            class="help-block">
+            <span *ngIf="signUpForm.get('lastName').errors['required']">
+              Last Name is required!
+            </span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            maxlength="40"
+            formControlName = "email"
+            class="form-control">
+          <span
+            *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').touched"
+            class="help-block">
+            <span>Email is invalid!</span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="dob">Date of Birth *</label>
+          <input
+            type="date"
+            id="dob"
+            formControlName = "dob"
+            class="form-control"
+            [max]="today">
+          <span
+            *ngIf="!signUpForm.get('dob').valid && signUpForm.get('dob').touched"
+            class="help-block">
+            <span *ngIf="signUpForm.get('dob').errors['required']">
+              Date of Birth is required!
+            </span>
+            <span *ngIf="signUpForm.get('dob').errors['invalidEventDate']">
+              Invalid DOB!
+            </span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="userType">User Type *</label>
+          <div id="userType" class="radio" *ngFor="let userType of userTypes">
+            <input
+              type="radio"
+              formControlName = "userType"
+              [value]="userType.key"> {{ userType.value }}
+          </div>
+
+          <span
+            *ngIf="!signUpForm.get('userType').valid && signUpForm.get('userType').touched"
+            class="help-block">
+
+            <span *ngIf="signUpForm.get('userType').errors['required']">
+              User Type is required!
+            </span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="location">Location *</label>
+          <select
+            id="location"
+            ngModel
+            formControlName = "location"
+            class="form-control">
+            <option *ngFor="let location of locations"
+              [value]="location">
+            {{ location }}
+            </option>
+          </select>
+
+          <span
+            *ngIf="!signUpForm.get('location').valid && signUpForm.get('location').touched"
+            class="help-block">
+
+            <span *ngIf="signUpForm.get('location').errors['required']">
+              Location is required!
+            </span>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="dob">Bio</label>
+          <textarea
+            id="bio"
+            formControlName = "bio"
+            maxlength="1000"
+            rows="6"
+            class="form-control">
+          </textarea>
+        </div>
+
+        <br>
+
+        <div class="text-center">
+          <button class="btn btn-outline-primary" type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
+          <button class="btn btn-outline-danger" type="reset">Clear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="text-center">Already have an account? <a routerLink="/login"><strong>Login Here!</strong></a></div>

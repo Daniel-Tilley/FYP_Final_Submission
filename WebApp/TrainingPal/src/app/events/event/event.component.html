@@ -1,0 +1,89 @@
+<div class="container-fluid">
+
+  <h2 class="text-center">{{ pageName }}</h2>
+
+  <hr>
+
+  <div class="row justify-content-center">
+    <div *ngIf="displayLocalVideo" class="col-md6 col-lg-6 col-xl-6 text-center">
+      <h4 class="text-center">{{ currentUser }}</h4>
+      <video id="localVideo"></video>
+    </div>
+    <div *ngIf="displayRemoteVideo" class="col-md-6 col-lg-6 col-xl-6 text-center">
+      <h4 class="text-center">{{ remoteUser }}</h4>
+      <div id="remoteVideos" class="text-center"></div>
+    </div>
+    <div *ngIf="displayLiveStreamChatBox" class="col-md-6 col-lg-6 col-xl-6">
+
+      <h4 class="text-center">Chat</h4>
+
+      <hr>
+
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <input [(ngModel)]="enteredMessage" class="form-control" type="text" maxlength="100" (keyup)="$event.keyCode == 13 && sendMessage()">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" (click)="sendMessage()"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div id="liveStreamChatBox" class="pre-scrollable" style="max-height: 50vh">
+        <div *ngFor="let message of messages" id="vid_con_message-container">
+          <div *ngIf="message.type === 0" class="text-left" style="padding-left: 1%">{{message.from }}: {{ message.content }}</div>
+          <div *ngIf="message.type === 1" class="text-right" style="padding-right: 1%">{{message.from }}: {{ message.content }}</div>
+          <div *ngIf="message.type === 2" class="text-center">*** {{message.from }} {{ message.content }} ***</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row justify-content-center">
+    <div class="bs-component">
+      <button  *ngIf="isAudioMuted && (isEventOneToOne || (isEventVideoConf && isUserCoach))" (click)="changeAudio()" class="btn btn-outline-danger"><i class="fa fa-microphone"></i></button>
+      <button  *ngIf="!isAudioMuted && (isEventOneToOne || (isEventVideoConf && isUserCoach))" (click)="changeAudio()" class="btn btn-outline-success"><i class="fa fa-microphone"></i></button>
+      <button *ngIf="isInCall" [disabled]="!canJoinCall" (click)="changeCallStatus()" class="btn btn-outline-danger">
+        <span *ngIf="canJoinCall">Leave</span>
+        <i *ngIf="!canJoinCall" class="fa fa-spinner fa-spin"></i>
+      </button>
+      <button *ngIf="!isInCall" [disabled]="!canJoinCall" (click)="changeCallStatus()" class="btn btn-outline-success">
+        <span *ngIf="canJoinCall">Join</span>
+        <i *ngIf="!canJoinCall" class="fa fa-spinner fa-spin"></i>
+      </button>
+      <button *ngIf="isVideoPaused && (isEventOneToOne || (isEventVideoConf && isUserCoach))" (click)="changeVideo()" class="btn btn-outline-danger"><i  class="fa fa-video-camera"></i></button>
+      <button *ngIf="!isVideoPaused && (isEventOneToOne || (isEventVideoConf && isUserCoach))" (click)="changeVideo()" class="btn btn-outline-success"><i  class="fa fa-video-camera"></i></button>
+    </div>
+  </div>
+
+  <div *ngIf="displayOneToOneChatBox" class="row justify-content-center">
+    <div class="col-md-6 col-lg-6 col-xl-6">
+
+      <hr>
+
+      <h4 class="text-center">Chat</h4>
+
+      <hr>
+
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <input [(ngModel)]="enteredMessage" class="form-control" type="text" maxlength="100" (keyup)="$event.keyCode == 13 && sendMessage()">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" (click)="sendMessage()"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="oneToOneChatBox" class="pre-scrollable" style="max-height: 20vh">
+        <div *ngFor="let message of messages" id="one_2_one_message-container">
+          <div *ngIf="message.type === 0" class="text-left" style="padding-left: 1%">{{message.from }}: {{ message.content }}</div>
+          <div *ngIf="message.type === 1" class="text-right" style="padding-right: 1%">{{message.from }}: {{ message.content }}</div>
+          <div *ngIf="message.type === 2" class="text-center">*** {{message.from }} {{ message.content }} ***</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

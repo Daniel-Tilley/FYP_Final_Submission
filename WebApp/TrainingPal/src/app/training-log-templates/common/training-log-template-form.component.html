@@ -1,0 +1,491 @@
+<form [formGroup]="templateEntry" (ngSubmit)="onSubmit()">
+  <div class="row justify-content-center">
+    <div class="col">
+
+      <hr>
+
+      <h5 class="text-center">Template Name *</h5>
+
+      <div class="form-group">
+        <input
+          type="text"
+          id="Name"
+          maxlength="50"
+          formControlName = "Name"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('Name').valid && templateEntry.get('Name').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('Name').errors['required']">
+                  Name is required
+                </span>
+              </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <!-- Planned Data Column -->
+    <div class="col-md-6 col-lg-6 col-xl-6">
+
+      <hr>
+
+      <h5 class="text-center">Planned Values</h5>
+
+      <hr>
+
+      <div class="form-group">
+        <label for="Duration_Planned">Duration</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="Duration_Planned"
+            step="1"
+            formControlName = "Duration_Planned"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="Distance_Planned">Distance</label>
+        <div class="input-group">
+          <input
+            type="number"
+            id="Distance_Planned"
+            formControlName = "Distance_Planned"
+            class="form-control">
+          <div class="input-group-append">
+            <select
+              id="Distance_Unit_Planned"
+              [(ngModel)] = "trainingLogTemplateDistanceType"
+              [ngModelOptions]="{standalone: true}"
+              class="form-control">
+              <option *ngFor="let measureType of trainingLogTemplateMeasureTypes"
+                      [value]="measureType.key">
+                {{ measureType.value }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <span
+          *ngIf="!templateEntry.get('Distance_Planned').valid && templateEntry.get('Distance_Planned').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('Distance_Planned').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('Distance_Planned').errors['max']">
+                  Max value is 9999!
+                </span>
+                <span *ngIf="templateEntry.get('Distance_Planned').errors['pattern']">
+                  Max 2 decimal places!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Resting_Planned">Resting HeartRate</label>
+        <input
+          type="number"
+          id="HR_Resting_Planned"
+          formControlName = "HR_Resting_Planned"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('HR_Resting_Planned').valid && templateEntry.get('HR_Resting_Planned').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('HR_Resting_Planned').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('HR_Resting_Planned').errors['max']">
+                  Max value is 999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Avg_Planned">Average HeartRate</label>
+        <input
+          type="number"
+          id="HR_Avg_Planned"
+          formControlName = "HR_Avg_Planned"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('HR_Avg_Planned').valid && templateEntry.get('HR_Avg_Planned').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('HR_Avg_Planned').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('HR_Avg_Planned').errors['max']">
+                  Max value is 999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Max_Planned">Max HeartRate</label>
+        <input
+          type="number"
+          id="HR_Max_Planned"
+          formControlName = "HR_Max_Planned"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('HR_Max_Planned').valid && templateEntry.get('HR_Max_Planned').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('HR_Max_Planned').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('HR_Max_Planned').errors['max']">
+                  Max value is 999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="Watts_Avg_Planned">Average Watts</label>
+        <input
+          type="number"
+          id="Watts_Avg_Planned"
+          formControlName = "Watts_Avg_Planned"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('Watts_Avg_Planned').valid && templateEntry.get('Watts_Avg_Planned').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('Watts_Avg_Planned').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('Watts_Avg_Planned').errors['max']">
+                  Max value is 9999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="Watts_Max_Planned">Max Watts</label>
+        <input
+          type="number"
+          id="Watts_Max_Planned"
+          formControlName = "Watts_Max_Planned"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('Watts_Max_Planned').valid && templateEntry.get('Watts_Max_Planned').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('Watts_Max_Planned').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('Watts_Max_Planned').errors['max']">
+                  Max value is 9999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="RPE_Planned">RPE (1-10)</label>
+        <input
+          type="number"
+          id="RPE_Planned"
+          formControlName = "RPE_Planned"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('RPE_Planned').valid && templateEntry.get('RPE_Planned').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('RPE_Planned').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('RPE_Planned').errors['max']">
+                  Max value is 10!
+                </span>
+              </span>
+      </div>
+
+      <hr>
+
+    </div>
+
+    <!-- Actual Data Column -->
+    <div class="col-md-6 col-lg-6 col-xl-6">
+
+      <hr>
+
+      <h5 class="text-center">Actual Values</h5>
+
+      <hr>
+
+      <div class="form-group">
+        <label for="Duration_Actual">Duration</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="Duration_Actual"
+            step="1"
+            formControlName = "Duration_Actual"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="Distance_Actual">Distance</label>
+        <div class="input-group">
+          <input
+            type="number"
+            id="Distance_Actual"
+            formControlName = "Distance_Actual"
+            class="form-control">
+          <div class="input-group-append">
+            <select
+              id="Distance_Unit_Actual"
+              [(ngModel)] = "trainingLogTemplateDistanceType"
+              [ngModelOptions]="{standalone: true}"
+              class="form-control">
+              <option *ngFor="let measureType of trainingLogTemplateMeasureTypes"
+                      [value]="measureType.key">
+                {{ measureType.value }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <span
+          *ngIf="!templateEntry.get('Distance_Actual').valid && templateEntry.get('Distance_Actual').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('Distance_Actual').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('Distance_Actual').errors['max']">
+                  Max value is 9999!
+                </span>
+                <span *ngIf="templateEntry.get('Distance_Actual').errors['pattern']">
+                  Max 2 decimal places!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Resting_Actual">Resting HeartRate</label>
+        <input
+          type="number"
+          id="HR_Resting_Actual"
+          formControlName = "HR_Resting_Actual"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('HR_Resting_Actual').valid && templateEntry.get('HR_Resting_Actual').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('HR_Resting_Actual').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('HR_Resting_Actual').errors['max']">
+                  Max value is 999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Avg_Actual">Average HeartRate</label>
+        <input
+          type="number"
+          id="HR_Avg_Actual"
+          formControlName = "HR_Avg_Actual"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('HR_Avg_Actual').valid && templateEntry.get('HR_Avg_Actual').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('HR_Avg_Actual').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('HR_Avg_Actual').errors['max']">
+                  Max value is 999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Max_Actual">Max HeartRate</label>
+        <input
+          type="number"
+          id="HR_Max_Actual"
+          formControlName = "HR_Max_Actual"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('HR_Max_Actual').valid && templateEntry.get('HR_Max_Actual').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('HR_Max_Actual').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('HR_Max_Actual').errors['max']">
+                  Max value is 999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="Watts_Avg_Actual">Average Watts</label>
+        <input
+          type="number"
+          id="Watts_Avg_Actual"
+          formControlName = "Watts_Avg_Actual"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('Watts_Avg_Actual').valid && templateEntry.get('Watts_Avg_Actual').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('Watts_Avg_Actual').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('Watts_Avg_Actual').errors['max']">
+                  Max value is 9999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="Watts_Max_Actual">Max Watts</label>
+        <input
+          type="number"
+          id="Watts_Max_Actual"
+          formControlName = "Watts_Max_Actual"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('Watts_Max_Actual').valid && templateEntry.get('Watts_Max_Actual').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('Watts_Max_Actual').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('Watts_Max_Actual').errors['max']">
+                  Max value is 9999!
+                </span>
+              </span>
+      </div>
+
+      <div class="form-group">
+        <label for="RPE_Actual">RPE (1-10)</label>
+        <input
+          type="number"
+          id="RPE_Actual"
+          formControlName = "RPE_Actual"
+          class="form-control">
+        <span
+          *ngIf="!templateEntry.get('RPE_Actual').valid && templateEntry.get('RPE_Actual').touched"
+          class="help-block">
+                <span *ngIf="templateEntry.get('RPE_Actual').errors['min']">
+                  Enter a value greater than 0!
+                </span>
+                <span *ngIf="templateEntry.get('RPE_Actual').errors['max']">
+                  Max value is 10!
+                </span>
+              </span>
+      </div>
+
+      <hr>
+
+    </div>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <!-- Other Data Column -->
+    <div class="col-md-12 col-lg-12 col-xl-12">
+      <h5 class="text-center">Additional Values</h5>
+
+      <hr>
+
+      <div class="form-group">
+        <label for="HR_Zone1_Time">HR Zone 1 Time</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="HR_Zone1_Time"
+            step="1"
+            formControlName = "HR_Zone1_Time"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Zone2_Time">HR Zone 2 Time</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="HR_Zone2_Time"
+            step="1"
+            formControlName = "HR_Zone2_Time"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Zone3_Time">HR Zone 3 Time</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="HR_Zone3_Time"
+            step="1"
+            formControlName = "HR_Zone3_Time"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Zone4_Time">HR Zone 4 Time</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="HR_Zone4_Time"
+            step="1"
+            formControlName = "HR_Zone4_Time"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Zone5_Time">HR Zone 5 Time</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="HR_Zone5_Time"
+            step="1"
+            formControlName = "HR_Zone5_Time"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="HR_Zone6_Time">HR Zone 6 Time</label>
+        <div class="input-group time">
+          <input
+            type="time"
+            id="HR_Zone6_Time"
+            step="1"
+            formControlName = "HR_Zone6_Time"
+            class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text">hh:mm:ss</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="text-center">
+    <button class="btn btn-primary" type="submit" [disabled]="!templateEntry.valid" *ngIf="pageName === 'create'">Create New Entry</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!templateEntry.valid" *ngIf="pageName === 'edit'">Update Entry</button>
+  </div>
+</form>

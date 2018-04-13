@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_page_name">Login</string>
+
+    <string name="login_page_username_label"><b>Username</b></string>
+    <string name="login_page_password_label"><b>Password</b></string>
+
+    <string name="login_page_sign_up_text">Don\'t Have an Account? Sign Up Here!</string>
+
+    <string name="login_page_login_button_text">Login</string>
+</resources>

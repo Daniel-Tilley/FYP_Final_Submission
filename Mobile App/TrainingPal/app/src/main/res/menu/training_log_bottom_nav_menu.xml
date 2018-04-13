@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/training_log_bottom_nav_info"
+        android:icon="@mipmap/ic_looks_one_black_24dp"
+        android:title="The Info" />
+    <item
+        android:id="@+id/training_log_bottom_nav_data"
+        android:icon="@mipmap/ic_looks_two_black_24dp"
+        android:title="The Data" />
+    <item
+        android:id="@+id/training_log_bottom_nav_extras"
+        android:icon="@mipmap/ic_looks_3_black_24dp"
+        android:title="The Comments" />
+</menu>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_form_required_indicator">*</string>
+    <string name="user_form_username_label"><b>Username</b></string>
+    <string name="user_form_password_label"><b>Password</b></string>
+    <string name="user_form_confirm_password_label"><b>Confirm Password</b></string>
+    <string name="user_form_firstname_label"><b>First Name</b></string>
+    <string name="user_form_lastname_label"><b>Last Name</b></string>
+    <string name="user_form_email_label"><b>Email Address</b></string>
+    <string name="user_form_dob_label"><b>Date Of Birth</b></string>
+    <string name="user_form_type_label"><b>Type</b></string>
+    <string name="user_form_location_label"><b>Location</b></string>
+    <string name="user_form_bio_label"><b>Bio</b></string>
+</resources>

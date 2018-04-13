@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="mobile_app.trainingpal.me.ViewTrainingLogActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:contentDescription="@string/traininglog_page_name"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_training_log_page_logo"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/android_header_logo"/>
+
+    <ScrollView
+        android:layout_below="@id/view_training_log_page_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0"
+            android:shrinkColumns="1">
+
+            <!-- LOG NAME -->
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+                    <View
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:id="@+id/view_training_log_name_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <!-- endregion -->
+
+            <!-- region LOG INFO -->
+
+            <TableRow
+                android:layout_marginTop="45dp">
+
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/training_log_form_the_info_header"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_time_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_time_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_desc_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_desc_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_type_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_type_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_date_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_date_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <!-- endregion -->
+
+            <!-- region PLANNED VALUES -->
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/training_log_form_planned_heading"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_duration_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_duration_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_distance_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_distance_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_resting_hr_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_resting_hr_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_avg_hr_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_avg_hr_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_max_hr_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_max_hr_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_avg_watts_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_avg_watts_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_max_watts_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_max_watts_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_rpe_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_planned_rpe_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <!-- endregion -->
+
+            <!-- region ACTUAL VALUES -->
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/training_log_form_actual_heading"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_duration_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_duration_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_distance_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_distance_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_resting_hr_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_resting_hr_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_avg_hr_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_avg_hr_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_max_hr_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_max_hr_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_avg_watts_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_avg_watts_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_max_watts_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_max_watts_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_rpe_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_actual_rpe_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <!-- endregion -->
+
+            <!-- region EXTRA VALUES -->
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/training_log_form_additional_values"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_sleep_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_sleep_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_calories_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_calories_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_zone1_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_zone1_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_zone2_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_zone2_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_zone3_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_zone3_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_zone4_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_zone4_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_zone5_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_zone5_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="@string/training_log_form_zone6_label"
+                    android:padding="5dip" />
+                <TextView
+                    android:id="@+id/view_training_log_zone6_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <!-- endregion -->
+
+            <!-- region ATHLETES COMMENTS -->
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/training_log_form_athletes_comments_label"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_span="2"
+                    android:id="@+id/view_training_log_athletes_comments_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <!-- endregion -->
+
+            <!-- region COACHES COMMENTS -->
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/training_log_form_coaches_comments_label"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_span="2"
+                    android:id="@+id/view_training_log_coaches_comments_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <!-- endregion -->
+
+            <!-- region WORKOUT COMMENTS -->
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/training_log_form_workout_comments_label"
+                        android:textSize="@dimen/text_view_page_title_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_span="2"
+                    android:id="@+id/view_training_log_workout_comments_value"
+                    android:gravity="center"
+                    android:padding="5dip" />
+            </TableRow>
+
+            <!-- endregion -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/view_training_log_buttons_container">
+
+                <Button
+                    android:id="@+id/view_training_log_edit_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:onClick="onViewTrainingLogPageEditClicked"
+                    android:text="Edit" />
+
+                <Button
+                    android:id="@+id/view_training_log_delete_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/errorColor"
+                    android:onClick="onViewTrainingLogPageDeleteClicked"
+                    android:text="Delete" />
+            </LinearLayout>
+
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>

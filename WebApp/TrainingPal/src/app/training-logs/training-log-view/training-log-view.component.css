@@ -1,0 +1,19 @@
+thead tr th{
+  color: #2C9FE3;
+}
+
+.info-row-item {
+  width: 50%;
+}
+
+.good-indicator {
+  background-color: rgba(113,255,100,0.5);
+}
+
+.bad-indicator {
+  background-color: rgba(255,63,58,0.5);
+}
+
+.ok-indicator {
+  background-color: rgba(255,130,36,0.5);
+}

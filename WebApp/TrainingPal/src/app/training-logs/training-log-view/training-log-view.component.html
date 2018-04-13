@@ -1,0 +1,273 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="card mb-3">
+        <h4 class="card-header text-center">{{ trainingLog?.Log_Name === null && 'Log Entry' ||  trainingLog?.Log_Name }}</h4>
+
+        <br>
+
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2" class="text-center">Log Info</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-light">
+                    <th scope="row" class="info-row-item text-center">Date:</th>
+                    <td class="info-row-item text-center">{{ trainingLog?.Log_Date | date:'fullDate' }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row" class="info-row-item text-center">Time:</th>
+                    <td class="info-row-item text-center" *ngIf="trainingLog?.Log_Time !== null">{{ trainingLog?.Log_Time | timePipe }}</td>
+                    <td class="info-row-item text-center" *ngIf="trainingLog?.Log_Time === null"></td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row" class="info-row-item text-center">Description:</th>
+                    <td class="info-row-item text-center">{{ trainingLog?.Log_Description }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row" class="info-row-item text-center">Type:</th>
+                    <td class="info-row-item text-center" *ngIf="trainingLog?.Type_ID === '1'">Rest Day</td>
+                    <td class="info-row-item text-center" *ngIf="trainingLog?.Type_ID === '2'">Swimming</td>
+                    <td class="info-row-item text-center" *ngIf="trainingLog?.Type_ID === '3'">Cycling</td>
+                    <td class="info-row-item text-center" *ngIf="trainingLog?.Type_ID === '4'">Running</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row justify-content-center">
+
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2" class="text-center">Planned Values</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-light">
+                    <th scope="row">Duration:</th>
+                    <td>{{ trainingLog?.Duration_Planned }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Distance:</th>
+                    <td>{{ trainingLog?.Distance_Planned }} {{ trainingLog?.Distance_Unit }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Resting HR:</th>
+                    <td>{{ trainingLog?.HR_Resting_Planned }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Average HR:</th>
+                    <td>{{ trainingLog?.HR_Avg_Planned }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Max HR:</th>
+                    <td>{{ trainingLog?.HR_Max_Planned }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Average Watts:</th>
+                    <td>{{ trainingLog?.Watts_Avg_Planned }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Max Watts:</th>
+                    <td>{{ trainingLog?.Watts_Max_Planned }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">R.P.E:</th>
+                    <td>{{ trainingLog?.RPE_Planned }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2" class="text-center">Actual Values</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-light">
+                    <th scope="row">Duration:</th>
+                    <td>{{ trainingLog?.Duration_Actual }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Distance:</th>
+                    <td>{{ trainingLog?.Distance_Actual }} {{ trainingLog?.Distance_Unit }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Resting HR:</th>
+                    <td>{{ trainingLog?.HR_Resting_Actual }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Average HR:</th>
+                    <td>{{ trainingLog?.HR_Avg_Actual }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Max HR:</th>
+                    <td>{{ trainingLog?.HR_Max_Actual }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Average Watts:</th>
+                    <td>{{ trainingLog?.Watts_Avg_Actual }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Max Watts:</th>
+                    <td>{{ trainingLog?.Watts_Max_Actual }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">R.P.E:</th>
+                    <td>{{ trainingLog?.RPE_Actual }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2" class="text-center">Extra Values</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-light">
+                    <th scope="row">Sleep Quality:</th>
+                    <td *ngIf="trainingLog?.Sleep_Quality === '1'" class="bad-indicator">Bad</td>
+                    <td *ngIf="trainingLog?.Sleep_Quality === '2'" class="ok-indicator">Ok</td>
+                    <td *ngIf="trainingLog?.Sleep_Quality === '3'" class="good-indicator">Good</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Calories:</th>
+                    <td>{{ trainingLog?.Calories_Burned }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Zone 1 Time:</th>
+                    <td>{{ trainingLog?.HR_Zone1_Time }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Zone 2 Time:</th>
+                    <td>{{ trainingLog?.HR_Zone2_Time }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Zone 3 Time:</th>
+                    <td>{{ trainingLog?.HR_Zone3_Time }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Zone 4 Time:</th>
+                    <td>{{ trainingLog?.HR_Zone4_Time }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Zone 5 Time:</th>
+                    <td>{{ trainingLog?.HR_Zone5_Time }}</td>
+                  </tr>
+
+                  <tr class="table-light">
+                    <th scope="row">Zone 6 Time:</th>
+                    <td>{{ trainingLog?.HR_Zone6_Time }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+          <br>
+
+          <div class="row justify-content-center">
+
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">Athletes Comments</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr class="table-light">
+                    <td style="white-space:pre-wrap; word-wrap:break-word">{{ trainingLog?.Athletes_Comments }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">Coaches Comments</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr class="table-light">
+                    <td style="white-space:pre-wrap; word-wrap:break-word">{{ trainingLog?.Coaches_Comments }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th scope="col" class="text-center">Workout Comments</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr class="table-light">
+                  <td style="white-space:pre-wrap; word-wrap:break-word">{{ trainingLog?.Workout_Comments }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card-body card-footer text-center">
+          <button type="button" class="btn btn-outline-primary" (click)="onEditClicked()">Edit</button>
+          <button type="button" class="btn btn-outline-danger" (click)="onDeleteClicked()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

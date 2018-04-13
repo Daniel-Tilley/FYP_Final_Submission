@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+      <h2 class="text-center">Your Templates</h2>
+
+      <br>
+
+      <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" routerLink="./create" routerLinkActive="active">Create</a>
+        </li>
+      </ul>
+
+      <br>
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

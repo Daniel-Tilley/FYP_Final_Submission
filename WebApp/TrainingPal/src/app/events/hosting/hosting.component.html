@@ -1,0 +1,66 @@
+<div class="card border-primary mb-3">
+  <div class="card-header text-center">Hosted Events <span class="badge badge-primary badge-pill">{{ events?.length }}</span></div>
+  <div class="card-body text-center">
+    <div *ngIf="events?.length === 0">No Events!</div>
+    <div *ngIf="events?.length !== 0">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let event of events">
+          <a href="javascript:void(0);" (click)="onEventClicked(event)" data-toggle="modal" data-target="#modalViewEvent">
+            <span>
+              {{ event.Name }} - {{ event.Event_Date | date:'MMM d' }}
+              <span *ngIf="event.Type === '1'"> - One To One </span>
+              <span *ngIf="event.Type === '2'"> - Video Con </span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div id="modalViewEvent" class="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ currentEvent?.Name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <table class="table">
+          <tbody>
+
+            <tr class="table-light">
+              <th scope="row">Type:</th>
+              <td *ngIf="currentEvent?.Type === '1'">One To One</td>
+              <td *ngIf="currentEvent?.Type === '2'">One To One</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Scheduled Date:</th>
+              <td>{{ currentEvent?.Event_Date }}</td>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="row">Attendees:</th>
+              <td *ngIf="currentEvent?.Attendees.length === 0">No Attendees!</td>
+              <td class="text-center" *ngIf="currentEvent?.Attendees.length !== 0">
+                <p class="text-center" *ngFor="let user of currentEvent?.Attendees">
+                  {{ user.User_ID }}
+                </p>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-footer text-center">
+        <button class="btn btn-outline-primary" (click)="goToEvent()">Go To Event</button>
+        <button class="btn btn-outline-danger" data-dismiss="modal" (click)="onDeleteClicked()">Delete Event</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+
+      <h2 class="text-center">Your Dashboard</h2>
+
+      <hr>
+
+      <div *ngIf="isUserAthlete">
+        <h4 class="text-center">Your Entries</h4>
+
+        <br>
+
+        <div class="row justify-content-center">
+          <div class="col-md-4 col-lg-4 col-xl-4">
+            <div class="card border-primary mb-3">
+              <div class="card-header text-center">Today's Entries <span class="badge badge-primary badge-pill">{{ todaysEntries?.length }}</span></div>
+              <div class="card-body text-center">
+                <div *ngIf="todaysEntries?.length === 0">No Entries For Today!</div>
+                <div *ngIf="todaysEntries?.length !== 0">
+                  <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let log of todaysEntries">
+                      <a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                      <span>
+                        {{ log.Log_Name === null && 'No Name' ||  log.Log_Name }}
+                        - {{ log.Log_Date | date:'EEE, MMM d' }}
+                        <span *ngIf="log.Log_Time !== null"> - {{log.Log_Time | timePipe }} </span>
+                      </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-lg-4 col-xl-4">
+            <div class="card border-primary mb-3">
+              <div class="card-header text-center">This Weeks Entries <span class="badge badge-primary badge-pill">{{ thisWeeksEntries?.length }}</span></div>
+              <div class="card-body text-center">
+                <div *ngIf="thisWeeksEntries?.length === 0">No Entries For This Week!</div>
+                <div *ngIf="thisWeeksEntries?.length !== 0">
+                  <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let log of thisWeeksEntries">
+                      <a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                      <span>
+                        {{ log.Log_Name === null && 'No Name' ||  log.Log_Name }}
+                        - {{ log.Log_Date | date:'EEE, MMM d' }}
+                        <span *ngIf="log.Log_Time !== null"> - {{log.Log_Time | timePipe }} </span>
+                      </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-lg-4 col-xl-4">
+            <div class="card border-primary mb-3">
+              <div class="card-header text-center">This Months Entries <span class="badge badge-primary badge-pill">{{ thisMonthsEntries?.length }}</span></div>
+              <div class="card-body text-center">
+                <div *ngIf="thisMonthsEntries?.length === 0">No Entries For This Month!</div>
+                <div *ngIf="thisMonthsEntries?.length !== 0">
+                  <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let log of thisMonthsEntries">
+                      <a href="javascript:void(0);" (click)="onLogClicked(log.Id)">
+                      <span>
+                        {{ log.Log_Name === null && 'No Name' ||  log.Log_Name }}
+                        - {{ log.Log_Date | date:'EEE, MMM d' }}
+                        <span *ngIf="log.Log_Time !== null"> - {{log.Log_Time | timePipe }} </span>
+                      </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+      </div>
+
+      <h4 class="text-center">Your Events</h4>
+
+      <br>
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-6 col-lg-6 col-xl-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header text-center">Hosted Events <span class="badge badge-primary badge-pill">{{ hostedEvents?.length }}</span></div>
+            <div class="card-body text-center">
+              <div *ngIf="hostedEvents?.length === 0">No Events!</div>
+              <div *ngIf="hostedEvents?.length !== 0">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let event of hostedEvents">
+                    <a href="javascript:void(0);" (click)="onEventClicked(event)">
+                      <span>
+                        {{ event.Name }} - {{ event.Event_Date | date:'MMM d' }}
+                        <span *ngIf="event.Type === '1'"> - One To One </span>
+                        <span *ngIf="event.Type === '2'"> - Video Con </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-xl-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header text-center">Attending Events <span class="badge badge-primary badge-pill">{{ attendingEvents?.length }}</span></div>
+            <div class="card-body text-center">
+              <div *ngIf="attendingEvents?.length === 0">No Events!</div>
+              <div *ngIf="attendingEvents?.length !== 0">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-center align-items-center" *ngFor="let event of attendingEvents">
+                    <a href="javascript:void(0);" (click)="onEventClicked(event)">
+                      <span>
+                        {{ event.Host_Username }} - {{ event.Name }} - {{ event.Event_Date | date:'MMM d' }}
+                        <span *ngIf="event.Type === '1'"> - One To One </span>
+                        <span *ngIf="event.Type === '2'"> - Video Con </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

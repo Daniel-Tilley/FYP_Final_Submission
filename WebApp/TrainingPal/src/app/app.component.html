@@ -1,0 +1,17 @@
+<div *ngIf="showNavBar">
+  <app-navbar></app-navbar>
+</div>
+<div *ngIf="!showNavBar">
+  <app-header></app-header>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8 col-xl-8">
+      <app-alert></app-alert>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<br>
+<app-footer></app-footer>
+
